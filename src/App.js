@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import PostIndex from './containers/Postindex';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      
         <img src={logo} className="App-logo" alt="logo" />
-       <h1>SOCIAL MEDIA CLONE</h1>
-      </header>
+        <h1>SOCIAL MEDIA CLONE</h1>
+        
+        <PostIndex/>
+    
     </div>
   );
 }
