@@ -1,6 +1,27 @@
-function PostIndex(props) {
+import { useEffect } from "react"
+import { getPosts } from '../redux/actionCreators'
+import { connect } from 'react-redux'
+import PostCard from '../components/PostCard'
+import '../card.css';
+import '../cards.css';
 
-    return <h1> Posts Go Here </h1>
+function PostIndex({ getPosts, posts}) {
+
+    useEffect(getPosts, [getPosts])
+    // console.log(posts)
+
+    return(
+    <div className="cards">
+            <h1> ALL POSTS </h1>
+            {posts.map(post => <PostCard {...post} key={post.id} />)}
+    </div>
+    )
+
 }
 
-export default PostIndex
+const mapStatetoPorps = (state) => {
+    return { posts: state.posts }
+
+}
+
+export default connect(mapStatetoPorps, { getPosts })(PostIndex)
