@@ -1,15 +1,18 @@
-// import logo from './logo.svg';
 import './style.css';
-import PostIndex from './containers/Postindex';
+import { PostIndex, PostShow } from './components';
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="index">
       
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <h1>SOCIAL MEDIA CLONE</h1>
         
-        <PostIndex/>
+        <h1>SOCIAL MEDIA CLONE</h1>
+      <Switch>
+        
+        <Route path="/posts/:id"><PostShow/></Route>
+        <Route path="/posts" component={PostIndex}></Route>
+      </Switch>
     
     </div>
   );
