@@ -6,11 +6,10 @@ export default function PostCard({ id, image, description, likes, username, user
 
     return (
         <div className="card">
-
-            <Link to={`/users/${user_id}`}><h3>{username}</h3></Link>
-            <Link to={`/users/${user_id}`}><img src={image} alt={description} /></Link>
+            <Link to={`/users/${user_id}`}><h3> Author: {username}</h3></Link>
+            <Link to={`/users/${user_id}`}><img class="card__image" src={image} alt={description} /></Link>
             <p>{description}</p>
-            <button> {likes} </button>  
+            <button> {likes} </button>
         </div>
     )  
 }

@@ -22,8 +22,36 @@
     /* align-items: center; */
     /* text-align: center; */
 }
+.card__image{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+
+
+}
 
 a {
     color:aliceblue;
     text-decoration: none;
 }
+.profile {
+        color:aliceblue;
+        margin: auto;
+        margin-top: 10px;
+        height: 350px;
+        width: 400px;
+        padding: 1.5rem;
+        /* float: left; */
+        background: #17141d;
+        box-shadow: -1rem 0 3rem #000;
+        /* display: flex; */
+        flex-wrap: wrap;
+        /* justify-content: space-around; */
+        /* box-sizing: border-box; */
+        flex-direction: column;
+        /* transition: .2s; */
+        /* margin: 0; */
+        /* scroll-snap-align: start; */
+        clear: both;
+}
+
