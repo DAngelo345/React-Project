@@ -1,16 +1,16 @@
-export default function PostCard({ image, description, likes, username }) {
+import { Link } from 'react-router-dom'
+
+export default function PostCard({ id, image, description, likes, username }) {
+
+    console.log(id)
 
     return (
         <div className="card">
 
-            <h3>{username}</h3>
-            <img src={image} alt={description} />
+            <Link to={`/users/${id}`}><h3>{username}</h3></Link>
+            <Link to={`/users/${id}`}><img src={image} alt={description} /></Link>
             <p>{description}</p>
-            <button> {likes} </button>
-            
+            <button> {likes} </button>  
         </div>
-    )
-
-
-    
+    )  
 }

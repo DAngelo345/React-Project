@@ -1,8 +1,29 @@
+import { useParams } from 'react-router-dom' 
+import { connect } from 'react-redux'
+import { getPost } from '../redux/actionCreators'
+import { useEffect } from 'react'
+
+import '../style.css';
+
 function PostShow(props) {
-
-    return <h1> THIS iS THE SHOW PAGE</h1>
-
+    const routeId = useParams().id
+    console.log(props)
+    useEffect(() => {
+        console.log('getting post')
+        props.getPost(routeId)
+}, [props.getPost, routeId])
     
+    return <div className="show"> 
+        <h1> THIS iS A POSTS SHOW PAGE</h1>
+
+       
+        </div>
+
+
 }
 
-export default PostShow;
+const mapStatetoPorps = (state) => {
+    return {...state.selectedPost}
+}
+
+export default connect(mapStatetoPorps, { getPost })(PostShow);

@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
 
 
-/* body { */
-    /* padding: 0;
-    margin: 0;
-    background-color: #17141d;
-    color: white;
-    font-family: 'DM Mono', monospace;
-    align-items: center; */
-    /* text-align: center; */
-/* } */
 .card {
     color:aliceblue;
     margin: auto;
@@ -29,6 +20,10 @@
     clear: both;
     
     /* align-items: center; */
-     /* text-align: center; */
+    /* text-align: center; */
+}
 
+a {
+    color:aliceblue;
+    text-decoration: none;
 }

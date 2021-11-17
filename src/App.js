@@ -1,5 +1,5 @@
 import './style.css';
-import { PostIndex, PostShow } from './components';
+import { PostIndex, PostShow, UserProfile } from './components';
 import { Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         
         <h1>SOCIAL MEDIA CLONE</h1>
       <Switch>
-        
+        <Route path="/users/:id" component={UserProfile}></Route>
         <Route path="/posts/:id"><PostShow/></Route>
         <Route path="/posts" component={PostIndex}></Route>
       </Switch>
