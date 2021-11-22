@@ -20,4 +20,6 @@ export const getUser = (id) => {
     )
 }
 
+export const clearUser = () => ({type: "ClEAR_USER"})
+
     

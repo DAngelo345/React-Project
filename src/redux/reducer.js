@@ -2,19 +2,22 @@
 
 // import { bindActionCreators } from "redux"
 
+const initialPost = {
+    image: "",
+    description: "",
+    likes: 0,
+    username: "",
+    bio: "",
+    category: "",
+    followers: 0,
+    following: 0
+
+}
+
 const initalState = {
 
     posts: [],
-    selectedPost: {
-        image: "",
-        description: "",
-        likes: 0,
-        username: "",
-        bio: "",
-        category: "",
-        followers: 0,
-        following: 0
-    },
+    selectedPost: initialPost,
     user: []
 }
 
@@ -27,7 +30,10 @@ export default function reducer(state=initalState, action){
             return { ...state, selectedPost: action.payload };
             case "GET_USER":
                 console.log("this is GET_USER ", action.payload)
-                return { ...state, user: action.payload };
+            return { ...state, user: action.payload };
+        case "CLEAR_USER":
+            console.log("this is CLEAR_USERRRRRR ")
+            return { ...state };
         default:
             return {...state,}
     }

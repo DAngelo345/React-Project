@@ -1,1 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+/* .index{
+
+    animation: transitonIn 0.75s;
+} */
+/* https://www.youtube.com/watch?v=zWB219zf1og */
+.card{
+
+    animation: transitonIn 0.75s;
+}
+.cards{
+    animation: transitonIn 0.75s;
+
+}
+@keyframes transitonIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+
+    }
+}
