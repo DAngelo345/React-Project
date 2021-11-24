@@ -26,10 +26,6 @@ function PostIndex({ getPosts, posts}) {
 
     }
 
-
-
-   
-
     return(
     <div className="cards">
             <h1> ALL POSTS </h1>

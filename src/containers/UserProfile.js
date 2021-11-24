@@ -21,7 +21,6 @@ function UserProfile({ getUser, clearUser, user }) {
         return clearUser
     }, [getUser, routeId, clearUser])
     
-
     // const whileUserPosts = () => {
 
     //     while (user.posts === undefined) {
@@ -31,24 +30,29 @@ function UserProfile({ getUser, clearUser, user }) {
 
     // whileUserPosts();
     const spinner = () => <div className="loader"></div>
+    const loaded = () =>  <div className="card">
+    <h1> USER PROFILE PAGE </h1>
 
-    return(
-        <div className="card">
-            <h1> USER PROFILE PAGE </h1>
-   
-            <h1> {user.username} </h1>
-            <p>bio : {user.bio} </p>
-            <p>category : {user.category} </p>
-            <p>followers : {user.followers} </p>
-            <p>following : {user.following} </p>
+    <h1> {user.username} </h1>
+    <p>bio : {user.bio} </p>
+    <p>category : {user.category} </p>
+    <p>followers : {user.followers} </p>
+    <p>following : {user.following} </p>
+    {/* {console.log(user.posts)} */}
+    {/* {user.posts ? spinner() : user.posts.map} */}
+    {user.posts.map(post => <UserProfilePage  {...post} key={post.id} />)}              
+  
+</div>
 
-            {/* {console.log(user.posts)} */}
-            {/* {user.posts ? spinner() : user.posts.map} */}
-            { user.posts.map(post => <UserProfilePage  {...post} key={post.id} />)}              
-          
-        </div>
+
+
+    return <>
+        {user ? loaded() : spinner()}
        
-    )
+        </>
+       
+       
+    
 }
 
 const mapStatetoProps = (state) => {

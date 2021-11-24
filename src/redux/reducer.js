@@ -14,11 +14,24 @@ const initialPost = {
 
 }
 
+
 const initalState = {
 
     posts: [],
     selectedPost: initialPost,
-    user: []
+    user: {
+        id: "",
+        bio: "",
+        username: "",
+        category: "",
+        followers: null,
+        following: null,
+        posts: []
+    },
+    setuser: {
+        username: ''
+    }
+  
 }
 
 export default function reducer(state=initalState, action){
@@ -28,12 +41,15 @@ export default function reducer(state=initalState, action){
         case "GET_POST":
             console.log("this is GET_POST ", action.payload)
             return { ...state, selectedPost: action.payload };
-            case "GET_USER":
+        case "GET_USER":
                 console.log("this is GET_USER ", action.payload)
             return { ...state, user: action.payload };
-        case "CLEAR_USER":
-            console.log("this is CLEAR_USERRRRRR ")
-            return { ...state };
+        case "SET_USER":
+            console.log("this is SET_USER", action.payload)
+            return{ ...state, setuser: action.payload}
+        // case "CLEAR_USER":
+        //     console.log("this is CLEAR_USERRRRRR ")
+        //     return { ...state };
         default:
             return {...state,}
     }
