@@ -30,7 +30,12 @@ export const submitLogin = (user) => {
       })
         .then(res => res.json())
         .then(user => dispatch({type: "SET_USER", payload: user})) 
-   
+}
+
+export const submitLogout = (user) => {
+    return dispatch => {
+        dispatch({ type: "LOGOUT"})
+    }
 }
 
 export const clearUser = () => ({type: "ClEAR_USER"})

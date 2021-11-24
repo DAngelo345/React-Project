@@ -46,7 +46,10 @@ export default function reducer(state=initalState, action){
             return { ...state, user: action.payload };
         case "SET_USER":
             console.log("this is SET_USER", action.payload)
-            return{ ...state, setuser: action.payload}
+            return { ...state, setuser: action.payload }
+            case "LOGOUT":
+                console.log("this is LOGOUT")
+                return{ ...state, setuser: ""}
         // case "CLEAR_USER":
         //     console.log("this is CLEAR_USERRRRRR ")
         //     return { ...state };
