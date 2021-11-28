@@ -1,7 +1,7 @@
 class UserShowSerializer < ActiveModel::Serializer
-  attributes :id, :posts, :likes
-end
-
-def posts
-  self.user.posts
+  attributes :id, :bio, :username, :category, :followers, :following
+  has_many :posts
+  # def posts
+  #   self.object.posts
+  # end
 end
