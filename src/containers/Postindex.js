@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { getPosts } from '../redux/actionCreators'
 import { connect } from 'react-redux'
-import { PostCard, Nav } from '../components'
+import { PostCard, Nav, PostForm } from '../components'
 import { useState } from 'react'
 import '../card.css';
 import '../cards.css';
@@ -29,11 +29,13 @@ function PostIndex({ getPosts, posts}) {
     return(
     <div className="cards">
             <h1> ALL POSTS </h1>
-            <Nav/>
+            <Nav />
+            
             {/* sortedArray() */}
             {sortedArray().map(post => <PostCard {...post} key={post.id} />)}
+            
             <button onClick={() => setActive(!active)}>{active ? 'true' : 'false'}</button>
-          
+            <PostForm />
     </div>
     )
 

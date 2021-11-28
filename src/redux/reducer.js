@@ -7,11 +7,12 @@ const initialPost = {
     description: "",
     likes: 0,
     username: "",
-    bio: "",
-    category: "",
-    followers: 0,
-    following: 0
+    id: null
 
+}
+const initialSetUser = {
+    username: '',
+    id: null
 }
 
 
@@ -28,9 +29,7 @@ const initalState = {
         following: null,
         posts: []
     },
-    setuser: {
-        username: ''
-    }
+    setuser: initialSetUser
   
 }
 
@@ -49,7 +48,13 @@ export default function reducer(state=initalState, action){
             return { ...state, setuser: action.payload }
             case "LOGOUT":
                 console.log("this is LOGOUT")
-                return{ ...state, setuser: ""}
+            return { ...state, setuser: initialSetUser }
+        case "NEW_POST":
+            console.log("this is NEW_POST")
+            return { ...state, user: action.payload }
+        case "DELETE_POST":
+            console.log("this is DELETE_POST")
+            return {...state, selectedPost: initialPost}
         // case "CLEAR_USER":
         //     console.log("this is CLEAR_USERRRRRR ")
         //     return { ...state };

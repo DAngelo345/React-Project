@@ -5,14 +5,16 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import { PostShow } from '../components';
 // import { PostCard } from '../components'
-import { UserProfilePage } from '../components'
-import '../card.css';
-import '../style.css';
+import { UserProfilePage, Nav } from '../components'
+
+// import '../card.css';
+// import '../style.css';
 
 
-function UserProfile({ getUser, clearUser, user }) {
+function UserProfile({ getUser, clearUser, user, setuser }) {
 
     const routeId = useParams().id
+    console.log("this Is USERPRofile", setuser)
     
     // console.log(getUser)
     useEffect(() => {
@@ -21,16 +23,9 @@ function UserProfile({ getUser, clearUser, user }) {
         return clearUser
     }, [getUser, routeId, clearUser])
     
-    // const whileUserPosts = () => {
-
-    //     while (user.posts === undefined) {
-    //         return console.log('undefinded user.posts')
-    //     }
-    // }
-
-    // whileUserPosts();
+   
     const spinner = () => <div className="loader"></div>
-    const loaded = () =>  <div className="card">
+    const loaded = () =>  <div className="profile">
     <h1> USER PROFILE PAGE </h1>
 
     <h1> {user.username} </h1>
@@ -40,13 +35,14 @@ function UserProfile({ getUser, clearUser, user }) {
     <p>following : {user.following} </p>
     {/* {console.log(user.posts)} */}
     {/* {user.posts ? spinner() : user.posts.map} */}
-    {user.posts.map(post => <UserProfilePage  {...post} key={post.id} />)}              
+        {user.posts.map(post => <UserProfilePage  {...post} key={post.id} creator={setuser.id}/>)}
   
 </div>
 
 
 
     return <>
+        <Nav/>
         {user ? loaded() : spinner()}
        
         </>
@@ -56,7 +52,7 @@ function UserProfile({ getUser, clearUser, user }) {
 }
 
 const mapStatetoProps = (state) => {
-    return { user: state.user }
+    return { user: state.user, setuser: state.setuser }
 
 }
 

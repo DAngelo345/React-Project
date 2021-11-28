@@ -37,6 +37,29 @@ export const submitLogout = (user) => {
         dispatch({ type: "LOGOUT"})
     }
 }
+export const submitPost = (newPost) => {
+    return dispatch => fetch(`http://localhost:3000/posts`, {
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPost),
+      })
+        .then(res => res.json())
+        .then(newPost => dispatch ({ type: "NEW_POST", payload: newPost }))
+}
+
+export const deletePost = (id) => {
+  return dispatch => fetch(`http://localhost:3000/posts/${id}`, {
+      method: 'DELETE', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(id),
+    })
+      .then(res => res.json())
+      .then(post => dispatch({ type: "DELETE_USER", payload: post }))
+}
 
 export const clearUser = () => ({type: "ClEAR_USER"})
 

@@ -1,5 +1,5 @@
 import './style.css';
-import { PostIndex, PostShow, UserProfile, Nav, Login } from './components';
+import { PostIndex, PostShow, UserProfile, Login, PostForm } from './components';
 import { Switch, Route } from 'react-router-dom'
 import {connect} from 'react-redux'
 
@@ -14,7 +14,7 @@ function App(props) {
       {props.setuser.username ?
       <Switch>
           <Route path="/users/:id" component={UserProfile}></Route>
-          <Route path="/posts/:id"><PostShow /></Route>
+          <Route path="/posts/:id" component={PostShow}></Route>
           <Route path="/posts" component={PostIndex}></Route>
           <Route path="/"><PostIndex /></Route>
         </Switch> :

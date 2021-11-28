@@ -18,7 +18,7 @@ function Login(props) {
 
     console.log(props)
 return (
-    <p>
+    <p className="login">
         <form onSubmit={handleSubmit}>
             <label>
                 username:

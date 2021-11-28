@@ -5,6 +5,17 @@
     animation: transitonIn 0.75s;
 } */
 /* https://www.youtube.com/watch?v=zWB219zf1og */
+.login {
+    animation: transitonIn 0.75s;
+}
+.profile{
+    animation: transitonIn 0.75s;
+
+}
+.show{
+    animation: transitonIn 0.75s;
+
+}
 .card{
 
     animation: transitonIn 0.75s;
