@@ -1,14 +1,16 @@
 
 import { useHistory } from 'react-router-dom'
 import { useEffect } from "react"
-import { submitPost, getPosts } from '../redux/actionCreators'
+import { submitPost, getPosts, submitLogin } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import { useState } from 'react'
+// import { $CombinedState } from 'redux'
 
 
-function PostForm({ userId, submitPost, getPosts }) {
+function PostForm({ userId, userName, submitPost, getPosts, submitLogin }) {
     console.log(userId)
 
+    // console.log(userName)
     useEffect(getPosts, [getPosts])
 
     const history = useHistory()
@@ -17,11 +19,11 @@ function PostForm({ userId, submitPost, getPosts }) {
     const [description, setDescription] = useState('')
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         const newPost = { image, description, user_id: userId }
         // console.log(newPost)
-       submitPost(newPost)
-        history.push("/posts/:id")
+        submitPost(newPost)
+        // history.push(`/users/${userId}`)
     }
 
     return (
@@ -39,6 +41,6 @@ function PostForm({ userId, submitPost, getPosts }) {
     )
 
 }
-const mapStateToProps = (state) => ({ userId: state.setuser.id })
+const mapStateToProps = (state) => ({ userId: state.setuser.id, userName: state.setuser.username })
 
-export default connect(mapStateToProps, { submitPost, getPosts })(PostForm);
+export default connect(mapStateToProps, { submitPost, getPosts, submitLogin })(PostForm);

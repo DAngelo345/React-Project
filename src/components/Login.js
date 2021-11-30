@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { submitLogin } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import '../morecss.css';
 
 function Login(props) {
     
@@ -21,10 +22,10 @@ return (
     <p className="login">
         <form onSubmit={handleSubmit}>
             <label>
-                username:
+                Pick a Username:
                 <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
             </label>
-            <input type="submit" value="Submit" />
+            <input  className="btn" type="submit" value="SUBMIT" />
         </form>
      </p>
         )

@@ -39,15 +39,10 @@ function UserProfile({ getUser, clearUser, user, setuser }) {
   
 </div>
 
-
-
     return <>
         <Nav/>
         {user ? loaded() : spinner()}
-       
         </>
-       
-       
     
 }
 

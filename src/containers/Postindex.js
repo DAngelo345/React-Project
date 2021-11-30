@@ -1,14 +1,17 @@
 import { useEffect } from "react"
-import { getPosts } from '../redux/actionCreators'
+import { getPosts, submitPost } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import { PostCard, Nav, PostForm } from '../components'
 import { useState } from 'react'
 import '../card.css';
 import '../cards.css';
+import '../index.css';
 
-function PostIndex({ getPosts, posts}) {
+function PostIndex({ getPosts, posts, submitPost }) {
 
-    useEffect(getPosts, [getPosts])
+
+    // actually CHECK THE LENGTH OF [getPost] and if that changes useEffect should modify the indexpage
+    useEffect(getPosts, [getPosts], [submitPost])
     // console.log(posts)
     // const [count, setCount] = useState(0);
 
@@ -23,20 +26,18 @@ function PostIndex({ getPosts, posts}) {
         else {
             return posts
         }
-
     }
 
     return(
-    <div className="cards">
-            <h1> ALL POSTS </h1>
-            <Nav />
-            
-            {/* sortedArray() */}
-            {sortedArray().map(post => <PostCard {...post} key={post.id} />)}
-            
-            <button onClick={() => setActive(!active)}>{active ? 'true' : 'false'}</button>
-            <PostForm />
-    </div>
+        <div className="cards">
+                <h1> ALL POSTS </h1>
+                <Nav />
+                
+                {/* sortedArray() */}
+                {sortedArray().map(post => <PostCard {...post} key={post.id} />)}
+                <button onClick={() => setActive(!active)}>{active ? 'true' : 'false'}</button>
+                <PostForm />
+        </div>
     )
 
 }
@@ -46,4 +47,4 @@ const mapStatetoPorps = (state) => {
 
 }
 
-export default connect(mapStatetoPorps, { getPosts })(PostIndex)
+export default connect(mapStatetoPorps, { getPosts, submitPost })(PostIndex)

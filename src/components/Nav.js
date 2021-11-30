@@ -2,7 +2,11 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { submitLogout } from '../redux/actionCreators';
 import '../cards.css';
-function Nav( { submitLogout }) {
+function Nav({ submitLogout }) {
+    
+
+
+    
     return <nav>
      
         <NavLink to="/posts" className="nav">ALL POSTS</NavLink>

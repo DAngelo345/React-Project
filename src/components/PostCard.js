@@ -14,7 +14,7 @@ export default function PostCard({ id, image, description, likes, username, user
             <Link to={`/users/${user_id}`}><h3> Author: {username}</h3></Link>
             <Link to={`/users/${user_id}`}><img class="card__image" src={image} alt={description} /></Link>
             <p>{description}</p>
-            <button onClick={() => setCount(count + 1)}> {count} </button>
+            <button className="btn" onClick={() => setCount(count + 1)}> {count} </button>
         </div>
     )
 }

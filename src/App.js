@@ -9,7 +9,7 @@ function App(props) {
     <div className="index">
       
         
-      <h1>SOCIAL MEDIA CLONE</h1>
+      <h1 className="header">SOCIAL MEDIA CLONE</h1>
 
       {props.setuser.username ?
       <Switch>

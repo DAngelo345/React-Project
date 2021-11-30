@@ -5,6 +5,9 @@
     animation: transitonIn 0.75s;
 } */
 /* https://www.youtube.com/watch?v=zWB219zf1og */
+.header{
+align-content: center;
+}
 .login {
     animation: transitonIn 0.75s;
 }
@@ -24,6 +27,8 @@
     animation: transitonIn 0.75s;
 
 }
+
+
 @keyframes transitonIn {
     from {
         opacity: 0;
