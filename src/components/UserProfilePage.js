@@ -5,7 +5,7 @@ import '../cards.css';
 export default function UserProfilePage(props) {
 
     // console.log('i am in UserProfilePage', props.username)  
-    console.log(props)
+    console.log('userProfilepage',props.id)
     return (
         <div className="profile">
             <h3> {props.description} </h3>

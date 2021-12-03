@@ -12,9 +12,10 @@ function PostShow(props) {
     
     const location = useLocation()
     // const { info }  = location.state
-    console.log(location.state)
+    // console.log(location.state)
+    console.log(props)
     
-    console.log("THI IS POSTSHOW useLocation info", location.state.creator)
+    // console.log("THI IS POSTSHOW useLocation info", location.state.creator)
     
 
 
@@ -23,7 +24,7 @@ function PostShow(props) {
     useEffect(() => {
         console.log('getting post')
         props.getPost(routeId)
-    }, [props.getPost, routeId])
+    }, [props.getPost, routeId, props])
     
     const deleteButton = () => {
         
@@ -40,6 +41,7 @@ function PostShow(props) {
     return <div className="show">
         {/* <Nav/> */}
         <h1> THiS iS A POSTs SHOW PAGE</h1>
+        {console.log(props.image)}
 
         
             {/* <h3> Author: {props.username}</h3> */}

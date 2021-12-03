@@ -3,15 +3,16 @@ import { getPosts, submitPost } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import { PostCard, Nav, PostForm } from '../components'
 import { useState } from 'react'
+
 import '../card.css';
 import '../cards.css';
 import '../index.css';
 
-function PostIndex({ getPosts, posts, submitPost }) {
+function PostIndex({ getPosts, posts }) {
 
 
     // actually CHECK THE LENGTH OF [getPost] and if that changes useEffect should modify the indexpage
-    useEffect(getPosts, [getPosts], [submitPost])
+    useEffect(getPosts, [getPosts])
     // console.log(posts)
     // const [count, setCount] = useState(0);
 
@@ -42,9 +43,9 @@ function PostIndex({ getPosts, posts, submitPost }) {
 
 }
 
-const mapStatetoPorps = (state) => {
+const mapStatetoProps = (state) => {
     return { posts: state.posts }
 
 }
 
-export default connect(mapStatetoPorps, { getPosts, submitPost })(PostIndex)
+export default connect(mapStatetoProps, { getPosts})(PostIndex)

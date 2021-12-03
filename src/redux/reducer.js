@@ -2,6 +2,7 @@
 
 // import { bindActionCreators } from "redux"
 
+
 const initialPost = {
     image: "",
     description: "",
@@ -16,10 +17,13 @@ const initialSetUser = {
 }
 
 
+
+
 const initalState = {
 
     posts: [],
     selectedPost: initialPost,
+    likedPosts: [],
     user: {
         id: "",
         bio: "",
@@ -51,7 +55,10 @@ export default function reducer(state=initalState, action){
             return { ...state, setuser: initialSetUser }
         case "NEW_POST":
             console.log("this is NEW_POST")
-            return { ...state, user: action.payload }
+            return { ...state, posts: [...state.posts, action.payload] }
+        case "ADD_LIKE":
+            console.log("this is ADD_LIKE")
+            return {...state}
         case "DELETE_POST":
             console.log("this is DELETE_POST")
             return {...state, selectedPost: initialPost}
@@ -59,6 +66,6 @@ export default function reducer(state=initalState, action){
         //     console.log("this is CLEAR_USERRRRRR ")
         //     return { ...state };
         default:
-            return {...state,}
+            return {...state}
     }
 }

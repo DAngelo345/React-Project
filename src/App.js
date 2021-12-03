@@ -1,5 +1,5 @@
 import './style.css';
-import { PostIndex, PostShow, UserProfile, Login, PostForm } from './components';
+import { PostIndex, PostShow, UserProfile, Login } from './components';
 import { Switch, Route } from 'react-router-dom'
 import {connect} from 'react-redux'
 

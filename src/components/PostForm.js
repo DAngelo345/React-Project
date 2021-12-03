@@ -1,5 +1,5 @@
 
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import { useEffect } from "react"
 import { submitPost, getPosts, submitLogin } from '../redux/actionCreators'
 import { connect } from 'react-redux'
@@ -13,14 +13,14 @@ function PostForm({ userId, userName, submitPost, getPosts, submitLogin }) {
     // console.log(userName)
     useEffect(getPosts, [getPosts])
 
-    const history = useHistory()
+    // const history = useHistory()
 
     const [image, setImage] = useState('')
     const [description, setDescription] = useState('')
 
     const handleSubmit = (e) => {
-        // e.preventDefault()
-        const newPost = { image, description, user_id: userId }
+        e.preventDefault()
+        const newPost = { image, description, user_id: userId, likes: 0 }
         // console.log(newPost)
         submitPost(newPost)
         // history.push(`/users/${userId}`)
