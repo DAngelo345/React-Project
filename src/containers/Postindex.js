@@ -9,7 +9,7 @@ import '../cards.css';
 import '../index.css';
 
 function PostIndex({ getPosts, posts }) {
-
+// console.log(posts)
 
     // actually CHECK THE LENGTH OF [getPost] and if that changes useEffect should modify the indexpage
     useEffect(getPosts, [getPosts])
@@ -48,4 +48,4 @@ const mapStatetoProps = (state) => {
 
 }
 
-export default connect(mapStatetoProps, { getPosts})(PostIndex)
+export default connect(mapStatetoProps, { getPosts })(PostIndex)

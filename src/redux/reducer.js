@@ -17,8 +17,6 @@ const initialSetUser = {
 }
 
 
-
-
 const initalState = {
 
     posts: [],
@@ -56,9 +54,48 @@ export default function reducer(state=initalState, action){
         case "NEW_POST":
             console.log("this is NEW_POST")
             return { ...state, posts: [...state.posts, action.payload] }
+        // case "ADD_LIKE":
+        //     console.log("this is ADD_LIKE")
+        //     // console.log(action.payload.likes)
+        //     return {
+        //         ...state, posts: state.posts.map(state => {
+        //             // console.log(state.id)
+        //             if (state.id == action.payload.id) {
+        //                 console.log(state.likes)
+        //                 return {...state, likes: state.likes + 1 }
+        //             } else {
+        //                 return state
+        //             }
+        //         })
+        //     }
         case "ADD_LIKE":
             console.log("this is ADD_LIKE")
-            return {...state}
+            // console.log(action.payload.likes)
+            return {
+                ...state, posts: state.posts.map(state => {
+                    // console.log(state.id)
+                    if (state.id == action.payload.id) {
+                        console.log(state.likes)
+                        return Object.assign({}, state, { likes: state.likes + 1 })
+                    } else {
+                        return state
+                    }
+                })
+            }
+        case "ADD_LIKE_FROM_USER_PROFILE":
+            console.log("this is ADD_LIKE_FROM_USER_PROFILE")
+            return {
+                ...state, posts: state.user.posts.map(state => {
+                    console.log(state.id)
+                    if (state.id == action.payload.id) {
+                        // console.log(state.likes)
+                        return Object.assign({}, state, { likes: state.likes + 1 })
+                    } else {
+                        return state
+                    }
+                })
+
+            }
         case "DELETE_POST":
             console.log("this is DELETE_POST")
             return {...state, selectedPost: initialPost}

@@ -30,5 +30,5 @@ return (
      </p>
         )
 }
-
+// return {...state, posts: state.posts.map()}
 export default connect(null, { submitLogin })(Login);

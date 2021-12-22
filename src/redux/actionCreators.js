@@ -61,17 +61,28 @@ export const deletePost = (id) => {
       .then(post => dispatch({ type: "DELETE_USER", payload: post }))
 }
 
-export const addLike = (postId, likesPlusOne ) => {
+export const addLike = (id) => {
   return dispatch =>
-    fetch(`http://localhost:3000/posts/${postId}`, {
+    fetch(`http://localhost:3000/posts/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
-    },
-    body: JSON.stringify(likesPlusOne)      
+    }   
   })
     .then(res => res.json())
     .then(likesPlusOne => dispatch({ type: "ADD_LIKE", payload: likesPlusOne }))
+}
+
+export const addLikeFromUserProfile = (id) => {
+  return dispatch =>
+    fetch(`http://localhost:3000/posts/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    }   
+  })
+    .then(res => res.json())
+    .then(likesPlusOne => dispatch({ type: "ADD_LIKE_FROM_USER_PROFILE", payload: likesPlusOne }))
 }
 
 

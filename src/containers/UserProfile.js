@@ -11,7 +11,7 @@ import { UserProfilePage, Nav } from '../components'
 // import '../style.css';
 
 
-function UserProfile({ getUser, clearUser, user, setuser }) {
+function UserProfile({ getUser, user, setuser }) {
 
     const routeId = useParams().id
     console.log("this Is USERPRofile", setuser)
@@ -20,8 +20,8 @@ function UserProfile({ getUser, clearUser, user, setuser }) {
     useEffect(() => {
         // console.log('getting user')
         getUser(routeId)
-        return clearUser
-    }, [getUser, routeId, clearUser])
+        // return clearUser
+    }, [getUser, routeId])
     
    
     const spinner = () => <div className="loader"></div>
@@ -35,7 +35,7 @@ function UserProfile({ getUser, clearUser, user, setuser }) {
     <p>following : {user.following} </p>
     {/* {console.log(user.posts)} */}
     {/* {user.posts ? spinner() : user.posts.map} */}
-        {user.posts.map(post => <UserProfilePage  {...post} key={post.id} creator={setuser.id}/>)}
+        {user.posts.map(post => <UserProfilePage  {...post} key={post.id} creator={setuser.id} />)}
   
 </div>
 

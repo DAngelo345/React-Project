@@ -17,8 +17,6 @@ function PostShow(props) {
     
     // console.log("THI IS POSTSHOW useLocation info", location.state.creator)
     
-
-
     const history = useHistory()
     // console.log( "this is post show props", props)
     useEffect(() => {

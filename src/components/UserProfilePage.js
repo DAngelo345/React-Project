@@ -1,25 +1,53 @@
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { addLike, addLikeFromUserProfile } from '../redux/actionCreators'
 
 import '../cards.css';
 
-export default function UserProfilePage(props) {
+function UserProfilePage({description, id, image, likes, creator, user_id, addLike, posts, addLikeFromUserProfile}) {
+    //  console.log("after mapstatetoprops", posts)
 
     // console.log('i am in UserProfilePage', props.username)  
-    console.log('userProfilepage',props.id)
+    // console.log('userProfilepage', props)
+    // function mapper() {
+    //     posts.forEach(post => {
+    //         // console.log("this Is mapper", post)
+            
+    //         return post.likes 
+    //     })
+    // }
+
+    // mapper()
+  
+
+    const newLike = (e) => {
+      
+        addLikeFromUserProfile(id)
+      
+    }
+
     return (
-        <div className="profile">
-            <h3> {props.description} </h3>
+        <div className="profile" >
+            <h3> {description} </h3>
             <Link to={{
-                        pathname: `/posts/${props.id}`,
+                        pathname: `/posts/${id}`,
                         state: {
-                            creator: props.creator,
-                            user_id: props.user_id
+                            creator: creator,
+                            user_id: user_id
                         }
-                        }}><img class="card__image" src={props.image} alt={props.description} /></Link>
+                        }}><img class="card__image" src={image} alt={description} /></Link>
 
             {/* <Link to={`/posts/${props.id}`}><img class="card__image" src={props.image} alt={props.description} /></Link> */}
             {/* <p>{props.description}</p> */}
-            <button> {props.likes} </button>
+            <button className="btn" onClick={newLike} > {likes} </button>
         </div>
     )  
+ }
+
+ const mapStatetoProps = (state) => {
+    // console.log(state)
+    return { posts: state.posts }
+
 }
+
+export default connect(mapStatetoProps, {addLike, addLikeFromUserProfile})(UserProfilePage)
