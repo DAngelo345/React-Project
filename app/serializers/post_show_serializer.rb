@@ -2,7 +2,9 @@ class PostShowSerializer < ActiveModel::Serializer
   attributes :id, :image, :description, :likes, :username, :user_id, :bio, :category, 
   :followers, :following
 
-
+  # def likes
+  #   self.object.user.likes
+  # end
   def username
     self.object.user.username
   end

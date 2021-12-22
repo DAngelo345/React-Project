@@ -18,7 +18,8 @@ class PostsController < ApplicationController
 
     def update
         post = Post.find(params[:id])
-        post.update(post_params)
+    #byebug
+        post.update_attribute(:likes, post.likes += 1)
         render json: post
     end
 
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:image, :description, :user_id)
+        params.require(:post).permit(:image, :description, :user_id, :likes)
         # byebug
     end
 
