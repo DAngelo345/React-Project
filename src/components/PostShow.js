@@ -9,7 +9,7 @@ import '../cards.css';
 
 function PostShow(props) {
     const routeId = useParams().id
-    
+
     const location = useLocation()
     // const { info }  = location.state
     // console.log(location.state)
@@ -52,8 +52,8 @@ function PostShow(props) {
         </div>
 }
 
-const mapStatetoPorps = (state) => {
+const mapStateToPorps = (state) => {
     return {...state.selectedPost}
 }
 
-export default connect(mapStatetoPorps, { getPost, deletePost })(PostShow);
+export default connect(mapStateToPorps, { getPost, deletePost })(PostShow);

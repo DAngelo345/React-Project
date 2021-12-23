@@ -9,7 +9,7 @@ function PostCard({ id, image, description, likes, username, user_id, setuser, a
 
     // console.log(setuser)
     // const count = likes
-
+    
 
     const newLike = (e) => {
       

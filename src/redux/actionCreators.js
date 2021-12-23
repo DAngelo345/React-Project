@@ -74,15 +74,15 @@ export const addLike = (id) => {
 }
 
 export const addLikeFromUserProfile = (id) => {
-  return dispatch =>
-    fetch(`http://localhost:3000/posts/${id}`, {
+  return dis =>
+    fetch(`http://localhost:3000/users/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
     }   
   })
     .then(res => res.json())
-    .then(likesPlusOne => dispatch({ type: "ADD_LIKE_FROM_USER_PROFILE", payload: likesPlusOne }))
+    .then(likesPlusOne => dis({ type: "ADD_LIKE_FROM_USER_PROFILE", payload: likesPlusOne }))
 }
 
 
