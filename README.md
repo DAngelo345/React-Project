@@ -2,8 +2,8 @@
 
 ## Description 
     Social Media clone is web application where 
-    you can create an account and add posts 
-    comments and interact with other users posts.
+    you can create an account and add posts, 
+    comments and interact with other users uploaded content.
 
 ## Technologies 
  - Ruby on Rails
