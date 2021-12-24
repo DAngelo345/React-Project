@@ -12,12 +12,18 @@
 
 ## Installation
 
-    - first run rails db:create and rails db:migrate to get the database running 
-    - make sure you're in the social-media-backend directory 
-    - type rails s in the command line to start the server.
+    - first clone this down to your computer
 
-    - then run npm start inside the social-media-frontend directory 
-      this will bring up the app in the browser and spin up react.
+    - cd into the social-media-backend directory
+
+    - then run rails db:create and rails db:migrate to get the database running 
+
+    - type rails s in the command line to start the server
+
+    - open a new termial window and cd into the social-media-frontend directory
+
+    - then run npm start
+      
 
 
 
